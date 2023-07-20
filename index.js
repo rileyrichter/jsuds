@@ -42,7 +42,6 @@ window.addEventListener("load", () => {
     1: 25,
     2: 13,
     3: 1,
-    default: 1,
   };
 
   const handleSeasonChange = function () {
@@ -51,7 +50,6 @@ window.addEventListener("load", () => {
 
     const duration = motionState.matches ? 0 : 500;
 
-    // Adjust slideIndex for viewport widths of 478px or less
     if (window.innerWidth <= 478) {
       slideIndex -= 1;
     }
@@ -59,38 +57,7 @@ window.addEventListener("load", () => {
     swiper.slideTo(slideIndex, duration, true);
   };
 
-  // Call on window load
   window.onload = handleSeasonChange;
-
-  // Call on window resize
   window.onresize = handleSeasonChange;
-
-  // Bind to seasonSelect change event
   seasonSelect.onchange = handleSeasonChange;
-
-  // seasonSelect.onchange = function () {
-  //   const season = Number(this.value);
-
-  //   if (motionState.matches) {
-  //     if (season === 1) {
-  //       swiper.slideTo(25, 0, true);
-  //     } else if (season === 2) {
-  //       swiper.slideTo(13, 0, true);
-  //     } else if (season === 3) {
-  //       swiper.slideTo(1, 0, true);
-  //     } else {
-  //       swiper.slideTo(1, 0, true);
-  //     }
-  //   } else {
-  //     if (season === 1) {
-  //       swiper.slideTo(25, 500, true);
-  //     } else if (season === 2) {
-  //       swiper.slideTo(13, 500, true);
-  //     } else if (season === 3) {
-  //       swiper.slideTo(1, 500, true);
-  //     } else {
-  //       swiper.slideTo(1, 500, true);
-  //     }
-  //   }
-  // };
 });
