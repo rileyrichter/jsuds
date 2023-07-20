@@ -57,6 +57,7 @@ window.addEventListener("load", () => {
     swiper.slideTo(slideIndex, duration, true);
   };
 
-  window.onload = handleSeasonChange;
+  handleSeasonChange();
+
   seasonSelect.onchange = handleSeasonChange;
 });
