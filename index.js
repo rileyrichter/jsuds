@@ -58,6 +58,5 @@ window.addEventListener("load", () => {
   };
 
   window.onload = handleSeasonChange;
-  window.onresize = handleSeasonChange;
   seasonSelect.onchange = handleSeasonChange;
 });
