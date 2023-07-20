@@ -34,10 +34,6 @@
   height: auto !important;
 }
 
-.swiper-slide:nth-child(1) {
-  margin-left: 1rem;
-}
-
 .select {
   appearance: none;
   -webkit-appearance: none;
@@ -51,6 +47,11 @@
 
   .poster-image {
     display: block;
+  }
+}
+@media screen and (max-width: 991px) {
+  .swiper-slide:nth-child(1) {
+    margin-left: 1rem;
   }
 }
 
