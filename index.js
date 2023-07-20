@@ -9,8 +9,6 @@ window.addEventListener("load", () => {
     slidesPerView: 3,
     spaceBetween: 10,
     slidesPerGroup: 3,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
 
     breakpoints: {
       992: {
@@ -38,44 +36,29 @@ window.addEventListener("load", () => {
     },
   });
 
-  const slideIndices = {
-    1: 25,
-    2: 13,
-    3: 1,
-  };
-
-  const handleSeasonChange = function () {
-    const season = Number(seasonSelect.value);
-    let slideIndex = slideIndices[season] || slideIndices.default;
-
-    const duration = motionState.matches ? 0 : 500;
-
-    if (window.innerWidth <= 478) {
-      slideIndex -= 1;
-    }
-
-    swiper.slideTo(slideIndex, duration, true);
-  };
-
-  let isSwiperInteraction = false;
-
-  // Set the function as the onchange handler for the dropdown menu
   seasonSelect.onchange = function () {
-    if (!isSwiperInteraction) {
-      handleSeasonChange();
+    const season = Number(this.value);
+
+    if (motionState.matches) {
+      if (season === 1) {
+        swiper.slideTo(25, 0, true);
+      } else if (season === 2) {
+        swiper.slideTo(13, 0, true);
+      } else if (season === 3) {
+        swiper.slideTo(1, 0, true);
+      } else {
+        swiper.slideTo(1, 0, true);
+      }
+    } else {
+      if (season === 1) {
+        swiper.slideTo(25, 500, true);
+      } else if (season === 2) {
+        swiper.slideTo(13, 500, true);
+      } else if (season === 3) {
+        swiper.slideTo(1, 500, true);
+      } else {
+        swiper.slideTo(1, 500, true);
+      }
     }
   };
-
-  // Disable the onchange function when the user is interacting with the Swiper
-  swiper.on("slideChange", function () {
-    isSwiperInteraction = true;
-  });
-
-  // Re-enable the onchange function when the user finishes interacting with the Swiper
-  swiper.on("touchEnd", function () {
-    isSwiperInteraction = false;
-  });
-
-  // Call the function immediately to set the initial slide
-  handleSeasonChange();
 });
