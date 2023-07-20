@@ -1,0 +1,57 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vid {
+  aspect-ratio: 16 / 9;
+}
+
+.w-background-video {
+  height: auto;
+}
+
+.hero-card-wrapper {
+  aspect-ratio: 77 / 118;
+}
+
+.font-wrapper {
+  font-size: clamp(2.5rem, 27vw, 24.75rem);
+}
+
+.li-image-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.li-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+@media (prefers-reduced-motion) {
+  .vid {
+    display: none;
+  }
+
+  .poster-image {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .button.light {
+    text-wrap: balance;
+  }
+}
