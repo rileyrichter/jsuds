@@ -37,18 +37,18 @@ window.addEventListener("load", () => {
     },
   });
 
-  seasonSelect.onchange = function () {
-    const season = Number(this.value);
-    if (season !== currentSeason) {
-      currentSeason = season;
+//   seasonSelect.onchange = function () {
+//     const season = Number(this.value);
+//     if (season !== currentSeason) {
+//       currentSeason = season;
 
-      const slides = { 1: 25, 2: 13, 3: 1 };
-      const slideTo = slides[season] || slides[3];
-      const duration = motionState.matches ? 0 : 500;
-      swiper.slideTo(slideTo, duration, true);
-    }
-  };
-});
+//       const slides = { 1: 25, 2: 13, 3: 1 };
+//       const slideTo = slides[season] || slides[3];
+//       const duration = motionState.matches ? 0 : 500;
+//       swiper.slideTo(slideTo, duration, true);
+//     }
+//   };
+// });
 
 // const seasonSelect = document.querySelector("#season");
 // const motionState = window.matchMedia("(prefers-reduced-motion: reduce)");
