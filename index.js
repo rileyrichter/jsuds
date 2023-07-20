@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
     direction: "horizontal",
     loop: false,
     slidesPerView: 3,
-    spaceBetween: 10,
+    spaceBetween: 16,
     slidesPerGroup: 3,
 
     breakpoints: {
@@ -18,14 +18,14 @@ window.addEventListener("load", () => {
         slidesPerGroup: 3,
       },
       479: {
-        slidesPerView: 1,
+        slidesPerView: 1.2,
         spaceBetween: 16,
-        slidesPerGroup: 1.2,
+        slidesPerGroup: 1,
       },
       0: {
-        slidesPerView: 1,
+        slidesPerView: 1.2,
         spaceBetween: 16,
-        slidesPerGroup: 1.2,
+        slidesPerGroup: 1,
       },
     },
     pagination: {
