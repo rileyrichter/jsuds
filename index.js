@@ -57,7 +57,25 @@ window.addEventListener("load", () => {
     swiper.slideTo(slideIndex, duration, true);
   };
 
-  handleSeasonChange();
+  let isSwiperInteraction = false;
 
-  seasonSelect.onchange = handleSeasonChange;
+  // Set the function as the onchange handler for the dropdown menu
+  seasonSelect.onchange = function () {
+    if (!isSwiperInteraction) {
+      handleSeasonChange();
+    }
+  };
+
+  // Disable the onchange function when the user is interacting with the Swiper
+  swiper.on("slideChange", function () {
+    isSwiperInteraction = true;
+  });
+
+  // Re-enable the onchange function when the user finishes interacting with the Swiper
+  swiper.on("touchEnd", function () {
+    isSwiperInteraction = false;
+  });
+
+  // Call the function immediately to set the initial slide
+  handleSeasonChange();
 });
