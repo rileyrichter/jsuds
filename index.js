@@ -4,6 +4,7 @@ let swiper = null;
 
 window.addEventListener("load", () => {
   document.querySelector(".swiper-wrapper").classList.remove("cls");
+  document.querySelector(".swiper-wrapper").removeAttribute("role");
   swiper = new Swiper(".swiper", {
     direction: "horizontal",
     loop: false,
