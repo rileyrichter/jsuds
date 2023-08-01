@@ -52,6 +52,9 @@ function updateSeason() {
     document
       .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
       .focus();
+    document
+      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+      .setAttribute("tabindex", "-1");
   }
 
   if (swiper) {
@@ -59,5 +62,8 @@ function updateSeason() {
     document
       .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
       .focus();
+    document
+      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+      .setAttribute("tabindex", "-1");
   }
 }
