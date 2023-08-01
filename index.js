@@ -49,9 +49,11 @@ function updateSeason() {
 
   if (window.innerWidth <= 478) {
     slideTo -= 1;
+    swiper.activeIndex.focus();
   }
 
   if (swiper) {
     swiper.slideTo(slideTo, duration, true);
+    swiper.activeIndex.focus();
   }
 }
