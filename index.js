@@ -49,11 +49,15 @@ function updateSeason() {
 
   if (window.innerWidth <= 478) {
     slideTo -= 1;
-    swiper.activeIndex.focus();
+    document
+      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+      .focus();
   }
 
   if (swiper) {
     swiper.slideTo(slideTo, duration, true);
-    swiper.activeIndex.focus();
+    document
+      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+      .focus();
   }
 }
