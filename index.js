@@ -48,7 +48,7 @@ function updateSeason() {
   const duration = motionState.matches ? 0 : 500;
 
   if (window.innerWidth <= 478) {
-    focusOffset = duration + 100;
+    focusOffset = 600;
     slideTo -= 1;
     setTimeout(() => {
       document
@@ -62,7 +62,7 @@ function updateSeason() {
 
   if (swiper) {
     swiper.slideTo(slideTo, duration, true);
-    focusOffset = duration + 100;
+    focusOffset = 600;
     setTimeout(() => {
       document
         .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
