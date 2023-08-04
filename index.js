@@ -48,22 +48,28 @@ function updateSeason() {
   const duration = motionState.matches ? 0 : 500;
 
   if (window.innerWidth <= 478) {
+    focusOffset = duration + 100;
     slideTo -= 1;
-    document
-      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-      .focus();
-    document
-      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-      .setAttribute("tabindex", "-1");
+    setTimeout(() => {
+      document
+        .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+        .focus();
+      document
+        .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+        .setAttribute("tabindex", "-1");
+    }, focusOffset);
   }
 
   if (swiper) {
     swiper.slideTo(slideTo, duration, true);
-    document
-      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-      .focus();
-    document
-      .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-      .setAttribute("tabindex", "-1");
+    focusOffset = duration + 100;
+    setTimeout(() => {
+      document
+        .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+        .focus();
+      document
+        .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
+        .setAttribute("tabindex", "-1");
+    }, focusOffset);
   }
 }
