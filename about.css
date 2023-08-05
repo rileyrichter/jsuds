@@ -1,0 +1,5 @@
+@media (min-width: 479px) {
+  .about-highlight-name {
+    font-size: clamp(2.5rem, 27vw, 24.75rem);
+  }
+}
