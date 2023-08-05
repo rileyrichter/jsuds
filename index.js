@@ -53,10 +53,10 @@ function updateSeason() {
     setTimeout(() => {
       document
         .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-        .focus();
+        .setAttribute("tabindex", "-1");
       document
         .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-        .setAttribute("tabindex", "-1");
+        .focus();
     }, focusOffset);
   }
 
@@ -66,10 +66,10 @@ function updateSeason() {
     setTimeout(() => {
       document
         .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-        .focus();
+        .setAttribute("tabindex", "-1");
       document
         .querySelector(".swiper-slide.w-dyn-item.swiper-slide-active")
-        .setAttribute("tabindex", "-1");
+        .focus();
     }, focusOffset);
   }
 }
