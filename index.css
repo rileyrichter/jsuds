@@ -1,8 +1,3 @@
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .vid {
   aspect-ratio: 16 / 9;
 }
