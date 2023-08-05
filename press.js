@@ -1,30 +1,38 @@
-const playButton = document.getElementById("btnPlay");
-const pauseButton = document.getElementById("btnPause");
-const embedPlayer = document.querySelector("#player");
+function loadScript(url) {
+  const script = document.createElement("script");
+  script.src = url;
+  const firstScript = document.querySelector("script");
+  firstScript.parentNode.insertBefore(script, firstScript);
+}
 
-const tag = document.createElement("script");
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName("script")[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+loadScript("https://www.youtube.com/iframe_api");
 
-let player;
+const playButtons = document.querySelectorAll(".youtube-poster-wrapper");
 
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player(embedPlayer, {
-    videoId: "-ChLT7b2Gj8",
+playButtons.forEach((button) => {
+  button.addEventListener("click", playVideo);
+});
+
+function playVideo(e) {
+  const buttonWrapper = e.target.closest(".youtube-poster-wrapper");
+
+  const playerDiv = document.createElement("div");
+  playerDiv.classList.add("youtube-poster-wrapper");
+  const iframeDiv = document.createElement("div");
+  playerDiv.appendChild(iframeDiv);
+
+  const youtubeItem = e.target.closest(".youtube-item.w-dyn-item");
+  youtubeItem.prepend(playerDiv);
+
+  buttonWrapper.remove();
+
+  const videoId = buttonWrapper.getAttribute("data-youtube-id");
+
+  new YT.Player(iframeDiv, {
+    videoId: videoId,
     playerVars: {
+      autoplay: 1,
       playsinline: 1,
     },
   });
-}
-
-playButton.addEventListener("click", playVideo);
-pauseButton.addEventListener("click", pauseVideo);
-
-function playVideo() {
-  player.playVideo();
-}
-
-function pauseVideo() {
-  player.pauseVideo();
 }
