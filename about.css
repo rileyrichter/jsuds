@@ -1,5 +1,5 @@
 @media (max-width: 479px) {
   .about-highlight-name {
-    font-size: clamp(2.5rem, 27vw, 24.75rem);
+    font-size: clamp(1.5rem, 12vw, 3.5rem);
   }
 }
