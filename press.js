@@ -7,6 +7,16 @@ function loadScript(url) {
 
 loadScript("https://www.youtube.com/iframe_api");
 
+function isMobileDevice() {
+  const maxWidth = 767;
+  return (
+    window.innerWidth <= maxWidth ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  );
+}
+
 const playButtons = document.querySelectorAll(".youtube-poster-wrapper");
 
 playButtons.forEach((button) => {
@@ -15,6 +25,12 @@ playButtons.forEach((button) => {
 
 function playVideo(e) {
   const buttonWrapper = e.target.closest(".youtube-poster-wrapper");
+  const shouldMute = isMobileDevice();
+  let muteState = 0;
+
+  if (shouldMute) {
+    muteState = 1;
+  }
 
   const playerDiv = document.createElement("div");
   playerDiv.classList.add("youtube-poster-wrapper");
@@ -33,6 +49,7 @@ function playVideo(e) {
     playerVars: {
       autoplay: 1,
       playsinline: 1,
+      mute: muteState,
     },
   });
 }
