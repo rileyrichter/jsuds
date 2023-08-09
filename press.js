@@ -17,33 +17,26 @@ function isMobileDevice() {
   );
 }
 
-const playButtons = document.querySelectorAll(".youtube-poster-wrapper");
+function initializeVideoButtons() {
+  const playButtons = document.querySelectorAll(".youtube-poster-wrapper");
+  playButtons.forEach((button) => {
+    button.addEventListener("click", playVideoOnClick);
+  });
+}
 
-playButtons.forEach((button) => {
-  button.addEventListener("click", playVideo);
-});
-
-function playVideo(e) {
+function playVideoOnClick(e) {
   const buttonWrapper = e.target.closest(".youtube-poster-wrapper");
   const shouldMute = isMobileDevice();
-  let muteState = 0;
-
-  if (shouldMute) {
-    muteState = 1;
-  }
-
-  const playerDiv = document.createElement("div");
-  playerDiv.classList.add("youtube-poster-wrapper");
-  const iframeDiv = document.createElement("div");
-  playerDiv.appendChild(iframeDiv);
+  const muteState = shouldMute ? 1 : 0;
 
   const youtubeItem = e.target.closest(".youtube-item.w-dyn-item");
-  youtubeItem.prepend(playerDiv);
+  const iframeDiv = document.createElement("div");
+  iframeDiv.classList.add("youtube-poster-wrapper");
+  youtubeItem.prepend(iframeDiv);
 
   buttonWrapper.remove();
 
   const videoId = buttonWrapper.getAttribute("data-youtube-id");
-
   new YT.Player(iframeDiv, {
     videoId: videoId,
     playerVars: {
@@ -53,3 +46,5 @@ function playVideo(e) {
     },
   });
 }
+
+initializeVideoButtons();
